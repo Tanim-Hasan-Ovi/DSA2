@@ -5,7 +5,7 @@ import PyPDF2
 from docx import Document
 from werkzeug.utils import secure_filename
 
-app = Flask(__name__, template_folder="../frontend")
+app = Flask(__name__)
 
 # Allowed file extensions
 ALLOWED_EXTENSIONS = {'pdf', 'docx'}
