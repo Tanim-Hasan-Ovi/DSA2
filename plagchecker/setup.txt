@@ -17,9 +17,10 @@ source venv/bin/activate
 # Install dependencies
 pip install -r tools.txt
 
+deactivate
 
 
-
+g++ cpp/plag.cpp -o plag -O3
 g++ cpp/rabin_karp.cpp -o backend/rabin_karp -O3
 g++ cpp/cosine_sim.cpp -o backend/cosine_sim -O3
 g++ cpp/lcs.cpp -o backend/lcs.exe -O3

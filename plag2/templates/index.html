@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plagiarism Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Plagiarism Checker</h1>
+        
+        <form id="plagiarismForm">
+            <!-- Document 1 Section -->
+            <div class="input-section">
+                <h3>Document 1</h3>
+                <div class="tab">
+                    <button type="button" class="tab-button active" data-target="text1">Text</button>
+                    <button type="button" class="tab-button" data-target="file1">File</button>
+                </div>
+                <div id="text1" class="tab-content active">
+                    <textarea id="textInput1" placeholder="Paste text here or upload a file..."></textarea>
+                </div>
+                <div id="file1" class="tab-content">
+                    <div class="drop-zone" id="dropZone1">
+                        <span>Drag & Drop file here or click to browse</span>
+                        <input type="file" id="fileInput1" accept=".txt,.pdf" hidden>
+                        <div class="file-info" id="fileInfo1"></div>
+                        <div class="file-type-hint">Supports .txt and .pdf files</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document 2 Section -->
+            <div class="input-section">
+                <h3>Document 2</h3>
+                <div class="tab">
+                    <button type="button" class="tab-button active" data-target="text2">Text</button>
+                    <button type="button" class="tab-button" data-target="file2">File</button>
+                </div>
+                <div id="text2" class="tab-content active">
+                    <textarea id="textInput2" placeholder="Paste text here or upload a file..."></textarea>
+                </div>
+                <div id="file2" class="tab-content">
+                    <div class="drop-zone" id="dropZone2">
+                        <span>Drag & Drop file here or click to browse</span>
+                        <input type="file" id="fileInput2" accept=".txt,.pdf" hidden>
+                        <div class="file-info" id="fileInfo2"></div>
+                        <div class="file-type-hint">Supports .txt and .pdf files</div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Check for Plagiarism</button>
+        </form>
+
+        <div id="result" class="hidden">
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar">0%</div>
+            </div>
+            <div id="similarityScore" class="similarity-score"></div>
+            <div id="verdict" style="text-align: center; font-size: 18px;"></div>
+            
+            <div class="analysis-section">
+                <h3>Analysis Results</h3>
+                <div id="rabinKarpResults"></div>
+                <div id="lcsResults"></div>
+                <div id="combinedResults"></div>
+            </div>
+            
+            <div id="matchedSections" style="margin-top: 20px;"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+
+</body>
+</html>
