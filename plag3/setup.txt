@@ -1,0 +1,28 @@
+
+
+cd plagchecker
+
+source venv/bin/activate
+
+python3 app.py
+
+
+
+# Create virtual environment
+python3 -m venv venv
+
+# Activate it
+source venv/bin/activate
+
+# Install dependencies
+pip install -r tools.txt
+
+deactivate
+
+g++ compare.cpp -o compare -O3
+g++ cpp/plag.cpp -o plag -O3
+g++ cpp/rabin_karp.cpp -o backend/rabin_karp -O3
+g++ cpp/cosine_sim.cpp -o backend/cosine_sim -O3
+g++ cpp/lcs.cpp -o backend/lcs.exe -O3
+
+g++ cpp/rabin_karp.cpp -o rabin_karp -O3
